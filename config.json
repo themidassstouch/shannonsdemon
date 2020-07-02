@@ -1,0 +1,18 @@
+{
+  "state": "TRADE",
+  "publickey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "secretkey": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+  "sleep_seconds_after_send_orders": 180,
+  "sleep_seconds_after_cancel_orders": 60,
+  "rebalance_interval_sec": 1080,
+  "pairs": [
+    {
+      "market": "CELRUSDT",
+      "base_asset_qty": 27285.79,
+      "quote_asset_qty": 98.5,
+      "buy_percentage": 0.668,
+      "sell_percentage": 1.333,
+      "fromId": 0
+    }
+  ]
+}
