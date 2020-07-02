@@ -2,122 +2,34 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+Welcome to the homepage of Shannon's Demon. The bot that let's you trade cryptocurrencies on binance exchange following a 50/50 rebalancing strategy, a.k.a. Shannon's Demon. Click link to get short explanation: [Shannon's Demon explained](https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/).
 
-[Link to another page](./another-page.html).
+This site is currently under construction. Please be patient as we are working hard to get proper documentation and workinstructions in place. For the time being, please find below a short version of how to get your bot working.
 
-There should be whitespace between paragraphs.
+# GET THE BOT STARTED (SHORT VERSION)
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+- Create a new binance account. Create api keys for your account (**disable withdrawal option** but enable trading option). Fund your account. Please use this link. It uses our referral code: [Binance](https://www.binance.com/en/register?ref=43234524).
+- Download either shannonsdemon.exe and config.json or create python project by cloning repository master branch (or any other way). The python project assumes you know how to create one, feel free to set it up any way you like. If you choose the first option, be sure to put both files in the same folder. If you choose the latter, be sure to put the config file in the working directory so script can find it.
+- Update the config.json file:
+ - Put STATE to "TEST". This let's you run the tool as it would do in TRADE state but prevents sending real orders to the exchange. This way you can see if your settings are ok Only if you are sure of the correct settings change STATE to "TRADE" 
+ - Enter api public and secret key
+ - Put sleep_seconds_after_send_orders, sleep_seconds_after_cancel_orders and rebalance_interval_sec to 180, 60 and 1080. This way the bot waits 180 sec after sending orders. Then wait 60 sec after cancelling orders. Every 1080 seconds the bot rebalances no matter how far away the market price is from the equilibrium price (=price at which you are perfectly balanced). However not if it is less than 5% away as you have to make up for fees too.
+  - Enter all pairs (markets) that the bot should trade. Please see config.json as example. Be carefull: fromID should be 0 only when you first initialize. It keeps strack of the trades it already processed. The buy and sell percentage lets you set the price of your orders as a percentage away from the equilibrium price. The base and quote asset quantity lets you set the amount of coins that you want to allocate to this portfolio. For the example below, you are at equilibrium if the price is 98.5 / 27285.79 = 0.00360994.
+- Start your bot by double clicking the .exe or run python script. Be sure to first start with STATE set to something different than TRADE, TEST for example.
 
-# Header 1
+![config.json](https://github.com/themidassstouch/shannonsdemon/tree/gh-pages/pictures/config.png)
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+# THE BOT RUNNING:
+![shannonsdemon.exe](https://github.com/themidassstouch/shannonsdemon/tree/gh-pages/pictures/bot.png)
 
-## Header 2
+# DONATE:
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+Besides opening and trading using a binance account using our referral: [Binance](https://www.binance.com/en/register?ref=43234524). Feel free to donate so we can keep developing:
 
-### Header 3
+1. ETH:   '0x13d55ca40ca3d008b7b0a0118d295f510410b60f'
+2. USDT:  '0x13d55ca40ca3d008b7b0a0118d295f510410b60f'
+3. BTC:   '1Fxyo5jfMxkDgGDjiAU9KE7svEG6Drriyv'
+4. LTC:   'Lbqi2McxsrhM2NR3FtgiMiF2JxswFBsmMX'
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
-
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
-* * *
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+# USEFUL LINKS:
+[error message documentation (not complete)](https://python-binance.readthedocs.io/en/latest/)
