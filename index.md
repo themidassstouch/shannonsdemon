@@ -4,7 +4,7 @@ layout: default
 
 Welcome to the homepage of Shannon's Demon. The bot that let's you trade cryptocurrencies on binance exchange following a 50/50 rebalancing strategy, a.k.a. Shannon's Demon.
 
-![shannonsdemon.exe](https://github.com/themidassstouch/shannonsdemon/pictures/bot.png)
+![shannonsdemon.exe](https://github.com/themidassstouch/shannonsdemon/blob/master/pictures/bot.png)
 
 This site is currently under construction. Please be patient as we are working hard to get proper documentation and workinstructions in place. For the time being, please find below a short version of how to get your bot working.
 
@@ -19,7 +19,7 @@ This site is currently under construction. Please be patient as we are working h
   - Enter all pairs (markets) that the bot should trade. Please see config.json as example. Be carefull: fromID should be 0 only when you first initialize. It keeps strack of the trades it already processed. The buy and sell percentage lets you set the price of your orders as a percentage away from the equilibrium price. The base and quote asset quantity lets you set the amount of coins that you want to allocate to this portfolio. For the example below, you are at equilibrium if the price is 98.5 / 27285.79 = 0.00360994.
 - Start your bot by double clicking the .exe or run python script. Be sure to first start with STATE set to something different than TRADE, TEST for example.
 
-![config.json](https://github.com/themidassstouch/shannonsdemon/pictures/config.png)
+![config.json](https://github.com/themidassstouch/shannonsdemon/blob/master/pictures/config.png)
 
 # DONATE:
 
