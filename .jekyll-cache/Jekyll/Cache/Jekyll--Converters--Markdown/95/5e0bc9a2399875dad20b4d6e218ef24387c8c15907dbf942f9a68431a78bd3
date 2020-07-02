@@ -1,8 +1,10 @@
-I"�<p>Welcome to the homepage of Shannon’s Demon. The bot that let’s you trade cryptocurrencies on binance exchange following a 50/50 rebalancing strategy, a.k.a. Shannon’s Demon. Click link to get short explanation: <a href="https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/">Shannon’s Demon explained</a>.</p>
+I"�<p>Welcome to the homepage of Shannon’s Demon. The bot that let’s you trade cryptocurrencies on binance exchange following a 50/50 rebalancing strategy a.k.a. Shannon’s Demon.</p>
+
+<p><img src="bot.png" alt="shannonsdemon.exe" /></p>
 
 <p>This site is currently under construction. Please be patient as we are working hard to get proper documentation and workinstructions in place. For the time being, please find below a short version of how to get your bot working.</p>
 
-<h1 id="get-the-bot-started-short-version">GET THE BOT STARTED (SHORT VERSION)</h1>
+<h1 id="get-the-bot-started">GET THE BOT STARTED:</h1>
 
 <ul>
   <li>Create a new binance account. Create api keys for your account (<strong>disable withdrawal option</strong> but enable trading option). Fund your account. Please use this link. It uses our referral code: <a href="https://www.binance.com/en/register?ref=43234524">Binance</a>.</li>
@@ -15,10 +17,7 @@
   <li>Start your bot by double clicking the .exe or run python script. Be sure to first start with STATE set to something different than TRADE, TEST for example.</li>
 </ul>
 
-<p><img src="https://github.com/themidassstouch/shannonsdemon/tree/gh-pages/pictures/config.png" alt="config.json" /></p>
-
-<h1 id="the-bot-running">THE BOT RUNNING:</h1>
-<p><img src="https://github.com/themidassstouch/shannonsdemon/tree/gh-pages/pictures/bot.png" alt="shannonsdemon.exe" /></p>
+<p><img src="config.png" alt="config.json" /></p>
 
 <h1 id="donate">DONATE:</h1>
 
@@ -32,5 +31,6 @@
 </ol>
 
 <h1 id="useful-links">USEFUL LINKS:</h1>
-<p><a href="https://python-binance.readthedocs.io/en/latest/">error message documentation (not complete)</a></p>
+<p><a href="https://python-binance.readthedocs.io/en/latest/">error message documentation (not complete)</a>
+<a href="https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/">Shannon’s Demon explained</a></p>
 :ET
