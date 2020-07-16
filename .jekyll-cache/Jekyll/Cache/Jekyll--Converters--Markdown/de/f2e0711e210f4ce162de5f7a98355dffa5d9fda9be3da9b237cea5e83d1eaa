@@ -1,0 +1,88 @@
+I"c <p align="justify">
+Welcome to the homepage of Shannon's Demon. The bot that grows the value of your crypto portfolio exponentially. This is done by repeatedly rebalancing your portfolio such that for every pair (e.g. BNBUSDT) you decide to trade, 50% of portfolio value is allocated to asset A (BNB) and 50% is allocated to asset B (USDT) </p>
+<p align="justify">
+Asset A is sold in exchange for asset B when the price of asset A relative to the price of Asset B goes up. It buys back asset A when the price relative to the price of asset B moves down again. Hereby generating a small profit. This is also known as volatility harvesting and if there is plenty of something in the crypto space it is volatility. For more information about this strategy, that is also known as Shannon's Demon, please read: <a href="https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/">[rebalancing-with-shannons-demon]</a>. 
+</p>
+<p align="justify">
+Under certain assumptions, it can be proved that there is no other strategy that generates higher returns in the long run than Shannon's Demon does. Over time it generates many small returns which are immediately re-invested. This is like receiving compound interest.</p>
+
+<p><img src="bot.png" alt="shannonsdemon.exe" /></p>
+
+<p align="justify">
+We have come up with this bot for those people that don't belong to the 5% that is profitable with trading. A lot of people new to the crypto space are losing money as they are not used to high volatility or leveraged trading. Although sometimes boring, your portfolio will slowly grow. Another big benefit of automated trading this strategy is that it doens't make you stress or checking prices all day long. Moreover you don't regret or doubt bad trading decisions so much. When prices drop it slowly builds a bigger postion 
+"I was one of those people belonging to the 95% of people who are not profitable trading. This bot makes me part of the 5% that are profitable" (happy user)  
+</p>
+
+<h1 id="get-your-bot-started">GET YOUR BOT STARTED:</h1>
+<p align="justify">
+Please find instructions on how to use your bot below. At the moment the bot only works for Binance. Above picture shows the bot running for 3 different pairs namely BNBUSDT,ETHUSDT and LTCUSDT. In the instructions below we show all steps needed to mimic the bot from the picture along with some explanation of the bot and the different parameters that can be set. Changing parameters or adding and removing pairs should be straightforward after reading these steps. The picture below shows the config.json file that is used for setting the pairs and parameters in our example. You can use any text editor (for example notepad++) to alter it. We prefer visual code which can be downloaded here: <a href="https://code.visualstudio.com/">[link]</a>
+</p>
+
+<p><img src="config.png" alt="config.json" /></p>
+
+<h2 id="step-1-set-up-your-trading-account">sTEP 1: SET UP YOUR TRADING ACCOUNT.</h2>
+<p align="justify">
+1. Open a trading account on the Binance exchange. Please use this <a href="https://www.binance.com/nl/register?ref=R9NNDYS8">[link]</a> as you receive a 10% discount on trading fees. Actually the discount is 20% but 10% is donated to us. In my opinion it is easiest to have a new (empty) account used solely for this bot as it makes initializing, debugging, allocating value to different portfolios (pairs) and PnL calculations much easier. Obviously you can use an existing account also.   
+</p>
+<p align="justify">
+2. Create api keys for your account. The bot needs the trading option to be enabled (disabled by default) Make sure to keep the withdrawal option disabled for obvious reasons. Find instructions on how to create api keys on Binance here: <a href="https://www.binance.com/en/support/articles/360002502072">[create api keys]</a> Copy the public and secret key from Binance to the config file's 'publickey' and 'secretkey' attributes.
+</p>
+<p align="justify">
+3. Fund your account and buy the pairs that you want to trade. In our example we allocate aprroximately 480 USDT to each of the three pairs. Therefore we buy approximately 16.29 BNB and 240 USDT for the first pair (BNBUSDT, price = 14.75), 1.11 ETH and 240 USDT for the second pair (ETHUSDT, price = 216) and 5.74 LTC and 240 USDT for the third pair (LTCUSDT, price = 41.85). Theoretically you don't need to own the full amount of asset A or asset B however you might not be able to sell or buy at some point in time if you don't.
+</p>
+
+<h2 id="step-2-downloading--installing-your-bot">STEP 2: DOWNLOADING / INSTALLING YOUR BOT.</h2>
+
+<p align="justify">
+1. Download shannonsdemon.exe and config.json from the github repository master branch. The executable is the result of shannonsdemon.py being compiled using the pyinstaller. For now only windows is supported unless you run the python script (shannonsdemon.py) Installing it will not be covered as somebody with enough knowledge should be able to set it up him- or herself easily.
+</p>
+<p align="justify">
+2. Make sure the executable and the config.json file are located the same folder as the executable or the python script. If not the bot will throw an error message that it can't find the config file.
+</p>
+<p align="justify">
+3. The bot can be started by double clicking or right clicking and selecting open. 
+</p>
+<h2 id="setting-the-config-file">SETTING THE CONFIG FILE.</h2>
+
+<ol>
+  <li>
+    <ul>
+      <li>Download either shannonsdemon.exe and config.json or create python project by cloning repository master branch (or any other way). The python project assumes you know how to create one, feel free to set it up any way you like. If you choose the first option, be sure to put both files in the same folder. If you choose the latter, be sure to put the config file in the working directory so script can find it.</li>
+      <li>Update the config.json file:</li>
+      <li>Put STATE to “TEST”. This let’s you run the tool as it would do in TRADE state but prevents sending real orders to the exchange. This way you can see if your settings are ok Only if you are sure of the correct settings change STATE to “TRADE”</li>
+      <li>Enter api public and secret key</li>
+      <li>Put sleep_seconds_after_send_orders, sleep_seconds_after_cancel_orders and rebalance_interval_sec to 180, 60 and 1080. This way the bot waits 180 sec after sending orders. Then wait 60 sec after cancelling orders. Every 1080 seconds the bot rebalances no matter how far away the market price is from the equilibrium price (=price at which you are perfectly balanced). However not if it is less than 5% away as you have to make up for fees too.</li>
+      <li>Enter all pairs (markets) that the bot should trade. Please see config.json as example. Be carefull: fromID should be 0 only when you first initialize. It keeps strack of the trades it already processed. The buy and sell percentage lets you set the price of your orders as a percentage away from the equilibrium price. The base and quote asset quantity lets you set the amount of coins that you want to allocate to this portfolio. For the example below, you are at equilibrium if the price is 98.5 / 27285.79 = 0.00360994.</li>
+      <li>Start your bot by double clicking the .exe or run python script. Be sure to first start with STATE set to something different than TRADE, TEST for example.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="config.png" alt="config.json" /></p>
+
+<h1 id="donate">DONATE:</h1>
+
+<p>Besides opening and trading using a binance account using our referral: <a href="https://www.binance.com/nl/register?ref=R9NNDYS8">Binance</a>. Feel free to donate so we can keep developing:</p>
+
+<ol>
+  <li>
+    <p>ETH:   ‘0x13d55ca40ca3d008b7b0a0118d295f510410b60f’</p>
+  </li>
+  <li>
+    <p>USDT:  ‘0x13d55ca40ca3d008b7b0a0118d295f510410b60f’</p>
+  </li>
+  <li>
+    <p>BTC:   ‘1Fxyo5jfMxkDgGDjiAU9KE7svEG6Drriyv’</p>
+  </li>
+  <li>
+    <p>LTC:   ‘Lbqi2McxsrhM2NR3FtgiMiF2JxswFBsmMX’</p>
+  </li>
+</ol>
+
+<p>For tailored investment advice, tool development, data analysis or any other question please contact us at shannonsdemon@outlook.com.</p>
+
+<h1 id="useful-links">USEFUL LINKS:</h1>
+
+<p><a href="https://python-binance.readthedocs.io/en/latest/">error message documentation (not complete)</a></p>
+
+:ET

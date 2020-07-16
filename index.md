@@ -1,35 +1,108 @@
 ---
 layout: default
 ---
-
-Welcome to the homepage of Shannon's Demon. The bot that let's you trade cryptocurrencies on binance exchange following a 50/50 rebalancing strategy a.k.a. Shannon's Demon.
+<p align="justify">
+Welcome to the homepage of Shannon's Demon. The bot that grows the value of your crypto portfolio exponentially. This is done by repeatedly rebalancing your portfolio such that for every pair (e.g. BNBUSDT) you decide to trade, 50% of portfolio value is allocated to asset A (BNB) and 50% is allocated to asset B (USDT) </p>
+<p align="justify">
+Asset A is sold in exchange for asset B when the price of asset A relative to the price of Asset B goes up. It buys back asset A when the price relative to the price of asset B moves down again. Hereby generating a small profit. This is also known as volatility harvesting and if there is plenty of something in the crypto space it is volatility. For more information about this strategy, that is also known as Shannon's Demon, please read: <a href="https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/">[rebalancing-with-shannons-demon]</a>. 
+</p>
+<p align="justify">
+Under certain assumptions, it can be proved that there is no other strategy that generates higher returns in the long run than Shannon's Demon does. Over time it generates many small returns which are immediately re-invested. This is like receiving compound interest.</p>
 
 ![shannonsdemon.exe](bot.png)
 
-This site is currently under construction. Please be patient as we are working hard to get proper documentation and workinstructions in place. For the time being, please find below a short version of how to get your bot working.
+<p align="justify">
+We have come up with this bot for those people that don't belong to the 5% that is profitable with trading. A lot of people new to the crypto space are losing money as they are not used to high volatility or leveraged trading. Although sometimes boring, your portfolio will slowly grow. Another big benefit is that it doens't make you stress or check prices all day long. Moreover you don't regret or doubt bad trading decisions so much.
+</p>
 
-# GET THE BOT STARTED:
-
-- Create a new binance account. Create api keys for your account (**disable withdrawal option** but enable trading option). Fund your account. Please use this link. It uses our referral code: [Binance](https://www.binance.com/en/register?ref=43234524).
-- Download either shannonsdemon.exe and config.json or create python project by cloning repository master branch (or any other way). The python project assumes you know how to create one, feel free to set it up any way you like. If you choose the first option, be sure to put both files in the same folder. If you choose the latter, be sure to put the config file in the working directory so script can find it.
-- Update the config.json file:
- - Put STATE to "TEST". This let's you run the tool as it would do in TRADE state but prevents sending real orders to the exchange. This way you can see if your settings are ok Only if you are sure of the correct settings change STATE to "TRADE" 
- - Enter api public and secret key
- - Put sleep_seconds_after_send_orders, sleep_seconds_after_cancel_orders and rebalance_interval_sec to 180, 60 and 1080. This way the bot waits 180 sec after sending orders. Then wait 60 sec after cancelling orders. Every 1080 seconds the bot rebalances no matter how far away the market price is from the equilibrium price (=price at which you are perfectly balanced). However not if it is less than 5% away as you have to make up for fees too.
-  - Enter all pairs (markets) that the bot should trade. Please see config.json as example. Be carefull: fromID should be 0 only when you first initialize. It keeps strack of the trades it already processed. The buy and sell percentage lets you set the price of your orders as a percentage away from the equilibrium price. The base and quote asset quantity lets you set the amount of coins that you want to allocate to this portfolio. For the example below, you are at equilibrium if the price is 98.5 / 27285.79 = 0.00360994.
-- Start your bot by double clicking the .exe or run python script. Be sure to first start with STATE set to something different than TRADE, TEST for example.
+# GET YOUR BOT STARTED:
+<p align="justify">
+Please find instructions on how to use your bot below. At the moment the bot only works for Binance. Above picture shows the bot running for 3 different pairs namely BNBUSDT,ETHUSDT and LTCUSDT. In the instructions below we show all steps needed to mimic the bot from the picture along with some explanation of the bot and the different parameters that can be set. Changing parameters or adding and removing pairs should be straightforward after reading these steps. The picture below shows the config.json file that is used for setting the pairs and parameters in our example. You can use any text editor (for example notepad++) to alter it. We prefer visual code which can be downloaded here: <a href="https://code.visualstudio.com/">[link]</a>
+</p>
 
 ![config.json](config.png)
 
-# DONATE:
+## sTEP 1: SET UP YOUR TRADING ACCOUNT.
+<p align="justify">
+1. Open a trading account on the Binance exchange. Please use this <a href="https://www.binance.com/nl/register?ref=R9NNDYS8">[link]</a> as you receive a 10% discount on trading fees. Actually the discount is 20% but 10% is donated to us. In my opinion it is easiest to have a new (empty) account used solely for this bot as it makes initializing, debugging, allocating value to different portfolios (pairs) and PnL calculations much easier. Obviously you can use an existing account also.   
+</p>
+<p align="justify">
+2. Create api keys for your account. The bot needs the trading option to be enabled (disabled by default) Make sure to keep the withdrawal option disabled for obvious reasons. Find instructions on how to create api keys on Binance here: <a href="https://www.binance.com/en/support/articles/360002502072">[create api keys]</a> Copy the public and secret key from Binance to the config file's 'publickey' and 'secretkey' attributes.
+</p>
+<p align="justify">
+3. Fund your account and buy the pairs that you want to trade. In our example we allocate aprroximately 480 USDT to each of the three pairs. Therefore we buy approximately 16.29 BNB and 240 USDT for the first pair (BNBUSDT, price = 14.75), 1.11 ETH and 240 USDT for the second pair (ETHUSDT, price = 216) and 5.74 LTC and 240 USDT for the third pair (LTCUSDT, price = 41.85). Theoretically you don't need to own the full amount of asset A or asset B however you might not be able to sell or buy at some point in time if you don't.
+</p>
 
-Besides opening and trading using a binance account using our referral: [Binance](https://www.binance.com/en/register?ref=43234524). Feel free to donate so we can keep developing:
+## STEP 2: DOWNLOADING / INSTALLING YOUR BOT.
+
+<p align="justify">
+1. Download shannonsdemon.exe and config.json from the github repository master branch. The executable is the result of shannonsdemon.py being compiled using the pyinstaller. For now only windows is supported unless you run the python script (shannonsdemon.py) Installing it will not be covered as somebody with enough knowledge should be able to set it up him- or herself easily.
+</p>
+<p align="justify">
+2. Make sure the executable and the config.json file are located the same folder as the executable. If not the bot will throw an error message that it can't find the config file.
+</p>
+<p align="justify">
+3. The bot can simply be started by double clicking the executable. Be aware that it immediately starts trading if the attribute 'state'is set to TRADE in the config file.
+</p>
+
+## STEP 3: SETTING THE CONFIG FILE.
+
+<p align="justify">
+1. The 'state' attribute controls whether orders are send to the exchange or not. If not set to TRADE (TEST for example), the bot runs like it does with 'state' set to TRADE except that it doesn't send the orders. The bot instead shows DUMMY orders in the terminal. It can be used to check your settings before sending real orders. We advise to always start your bot with 'state' set to TEST so that you can see if you agree with the orders being send. If for example you have made a mistake in the value of asset A (base asset) and/or asset B (quote asset), the price of your dummy orders is deviating a lot from current market bid or ask. Set it to TEST.
+</p>
+<p align="justify">
+2. The 'secretkey' and 'publickey' attributes should match the keys generated in your binance account. See step 1.2 also.
+</p>
+<p align="justify">
+3. The 'sleep_seconds_after_send_orders', 'sleep_seconds_after_cancel_orders' and 'rebalance_interval_sec' determine the rythm of the rebalancing. The bot always starts with sending regular orders. After sending the orders it sleeps for 'sleep_seconds_after_send_orders' amount of time. When it wakes up it cancels all orders and sleeps again for 'sleep_seconds_after_cancel_orders' amount of time. The last attribute ('rebalance_interval_sec') determines how often you want to send special orders. Special orders are rebalancing not at a price difference specified by the config file ('buy_percentage' and 'sell_percentage') but at any price difference given that it is more than 5% (to offset fees).
+</p>
+<p align="justify">
+4. The attribute 'pairs' is an array of the different pairs you want to trade. You can add or remove all the pairs you want. The 'market' attribute (e.g. BNBUSDT) should be obvious. You can also add pairs like BNBBTC. The 'base_asset_qty' and 'quote_asset_qty' are the quantities of allocated to the respective legs of the pair. The base asset is always the first coin of the pair (BNB) The quote asset is always the second asset (USDT) The 'buy_percentage' and 'sell_percentage' attributes determine the price of the orders that you send. For example BNBUSDT is at the current price of 14.75 and quantities equal to 16.29 and 240 perfectly balanced. The price of your buy and sell orders, with these attributes equal to 0.9 and 1.1, are equal to 13.27 and 16.22 respectively. That is 10% away from equilibrium. The 'fromId' attribute is the id of the last trade that is done by the bot. For new pairs you should always set it to 0. For existing pairs or if you want to change the value allocated to this strategy always let the bot set it. This can be done by starting the bot first with 'state' unequal to TRADE.
+</p>
+
+## STEP 4: ALMOST THERE.
+<p align="justify">
+It is very important that you always start the bot with 'state' unequal to TRADE (e.g. TEST) to check if your orders make sense. We advise to always start your bot following the steps below.
+</p>
+<p align="justify">
+1. Start the bot with 'state' equal to TEST. New trades are processed and quantities and 'fromId' in the config file are updated accordingly. Do not check orders yet.
+</p>
+<p align="justify">
+2. Check the 'base_asset_qty' and 'quote_asset_qty' to see if all pairs are balanced. Also change the quantities if you want to allocate more or less value to a pair. Re-start the bot with 'state' equal to TEST. Check order prices.  
+</p>
+<p align="justify">
+3. If all orders are ok then change the 'state' to TRADE and start your bot.
+</p>
+
+## DEBUGGING
+<p align="justify">
+For most errors the bot shows a message that are self explanatory. Please see bullets below for more info and possible solutions. Please contact us 
+</p>
+<p align="justify">
+All messages related to time sync. The time of your computer is not in sync with the time of binance servers. Please sync your computer's clock. We have also seen that the time of the router needed to be synced.
+</p>
+<p align="justify">
+Message '   circuitbreaker set because at crt price we hit market, please inspect config file' The pair for which the bot tries to send orders is so far away from equilibrium price that it would hit market immediately. Usually it means that the quantities in your log file are wrong. Sometimes, in very volatile markets, it can happen that the price moves so much (e.g. > 2x 'sell_percentage') in between an update cycle of your bot that you also get this message. You can trade and update quantities in config file accordingly.  
+</p>
+<p align="justify">
+Message that contains 'min_notional' This happens when the order that the bot wants to send is less than the minimal order value required by Binance. Ignore this error or allocate more value to pair.
+</p>
+<p align="justify">
+All messages related to the fact that the config file cannot be found. The config file must be located in the same folder as the bot is.
+</p>
+<p align="justify">
+The bot uses Samm Chardy python-binance library. You can always look here for additional info. <a href="https://python-binance.readthedocs.io/en/latest/">[python-binance]</a>
+</p>
+
+## DONATE:
 
 1. ETH:   '0x13d55ca40ca3d008b7b0a0118d295f510410b60f'
+
 2. USDT:  '0x13d55ca40ca3d008b7b0a0118d295f510410b60f'
+
 3. BTC:   '1Fxyo5jfMxkDgGDjiAU9KE7svEG6Drriyv'
+
 4. LTC:   'Lbqi2McxsrhM2NR3FtgiMiF2JxswFBsmMX'
 
-# USEFUL LINKS:
-[error message documentation (not complete)](https://python-binance.readthedocs.io/en/latest/)
-[Shannon's Demon explained](https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/)
+
+For tailored investment advice, tool development, data analysis or any other question please contact us at shannonsdemon@outlook.com.

@@ -1,0 +1,54 @@
+I"�<p align="justify">
+Welcome to the homepage of Shannon's Demon. The bot that grows the value of your crypto portfolio by trading on Binance. This is done by repeatedly rebalancing your portfolio such that per pair (e.g. BNBUSDT) 50% of your portfolio value is allocated to asset A (BNB) and the other 50% is allocated to asset B (USDT) </p>
+<p align="justify">
+Asset A is sold in exchange for asset B when the price of asset A goes up (relative to asset B). It buys back asset A when the price (relative to asset B) moves down again. Hereby generating a small profit. This is also known as volatility harvesting and if there is plenty of something in the crypto space it is volatility. For more information about this strategy, that is also known as Shannon's Demon, please read: [rebalancing-with-shannons-demon](https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/) </p>
+<p align="justify">
+Under certain assumptions, it can be proved that there is no other strategy that generates higher returns in the long run than Shannon's Demon does. It generates many small returns over time which are immediately re-invested. This is like receiving compound interest. One might need to be patient though as the long run can take very long. You won't get rich quick but you will get rich slow. </p>
+<p align="justify">
+"I was one of those people belonging to the 95% of people who are not profitable trading. This bot makes me part of the 5%" (happy user)  
+</p>
+<p align="justify">
+"Before using this bot I was stressed about my positions all day long and constantly checking prices. Not anymore!" (another happy user) 
+</p>
+<p align="justify">
+"The bot gives you piece of mind as you don't doubt or regret your trading decisions all the time" (yet another happy user)
+</p>
+<p><img src="bot.png" alt="shannonsdemon.exe" /></p>
+
+<h1 id="get-the-bot-started">GET THE BOT STARTED:</h1>
+
+<p>Please find below instructions on how to use this bot and start trading. It assumes you don’t own a binance account yet. If you do own a binance account and want to use that account for trading then please adjust below steps accordingly. Above picture shows an example of a bot running for three different pairs. This example is referenced throughout the instructions. Below you can find a picture of the config.json file needed to start the bot in this example. Adding more or different pairs should be straightforward after reading the instructions.</p>
+
+<h2 id="setting-up-a-trading-account">Setting up a trading account.</h2>
+
+<ul>
+  <li>First you need to open a trading account on binance. In my opinion it is easiest to have a new (empty) account used solely for this bot. This makes initializing, debugging, allocating value to different pairs and PnL calculations much easier. Obviously this is not a hard requirement. For a 20% discount on trading fees of which 10% is donated to us, please use this link: <a href="https://www.binance.com/nl/register?ref=R9NNDYS8"><strong>Binance</strong></a>.</li>
+  <li>Next step is to create api keys for your account. The bot needs the trading option to be enabled, it is disabled by default.    (<strong>disable withdrawal option</strong> but enable trading option). Fund your account. Please use this link. It uses our referral code: <a href="https://www.binance.com/nl/register?ref=R9NNDYS8">Binance</a>.</li>
+  <li>Download either shannonsdemon.exe and config.json or create python project by cloning repository master branch (or any other way). The python project assumes you know how to create one, feel free to set it up any way you like. If you choose the first option, be sure to put both files in the same folder. If you choose the latter, be sure to put the config file in the working directory so script can find it.</li>
+  <li>Update the config.json file:</li>
+  <li>Put STATE to “TEST”. This let’s you run the tool as it would do in TRADE state but prevents sending real orders to the exchange. This way you can see if your settings are ok Only if you are sure of the correct settings change STATE to “TRADE”</li>
+  <li>Enter api public and secret key</li>
+  <li>Put sleep_seconds_after_send_orders, sleep_seconds_after_cancel_orders and rebalance_interval_sec to 180, 60 and 1080. This way the bot waits 180 sec after sending orders. Then wait 60 sec after cancelling orders. Every 1080 seconds the bot rebalances no matter how far away the market price is from the equilibrium price (=price at which you are perfectly balanced). However not if it is less than 5% away as you have to make up for fees too.</li>
+  <li>Enter all pairs (markets) that the bot should trade. Please see config.json as example. Be carefull: fromID should be 0 only when you first initialize. It keeps strack of the trades it already processed. The buy and sell percentage lets you set the price of your orders as a percentage away from the equilibrium price. The base and quote asset quantity lets you set the amount of coins that you want to allocate to this portfolio. For the example below, you are at equilibrium if the price is 98.5 / 27285.79 = 0.00360994.</li>
+  <li>Start your bot by double clicking the .exe or run python script. Be sure to first start with STATE set to something different than TRADE, TEST for example.</li>
+</ul>
+
+<p><img src="config.png" alt="config.json" /></p>
+
+<h1 id="donate">DONATE:</h1>
+
+<p>Besides opening and trading using a binance account using our referral: <a href="https://www.binance.com/nl/register?ref=R9NNDYS8">Binance</a>. Feel free to donate so we can keep developing:</p>
+
+<ol>
+  <li>ETH:   ‘0x13d55ca40ca3d008b7b0a0118d295f510410b60f’</li>
+  <li>USDT:  ‘0x13d55ca40ca3d008b7b0a0118d295f510410b60f’</li>
+  <li>BTC:   ‘1Fxyo5jfMxkDgGDjiAU9KE7svEG6Drriyv’</li>
+  <li>LTC:   ‘Lbqi2McxsrhM2NR3FtgiMiF2JxswFBsmMX’</li>
+</ol>
+
+<p>For tailored investment advice, tool development, data analysis or any other question please contact us at shannonsdemon@outlook.com.</p>
+
+<h1 id="useful-links">USEFUL LINKS:</h1>
+<p><a href="https://python-binance.readthedocs.io/en/latest/">error message documentation (not complete)</a></p>
+
+:ET
