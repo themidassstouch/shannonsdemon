@@ -1,18 +1,34 @@
 {
-  "state": "TRADE",
-  "publickey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-  "secretkey": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
-  "sleep_seconds_after_send_orders": 180,
-  "sleep_seconds_after_cancel_orders": 60,
-  "rebalance_interval_sec": 1080,
-  "pairs": [
-    {
-      "market": "CELRUSDT",
-      "base_asset_qty": 27285.79,
-      "quote_asset_qty": 98.5,
-      "buy_percentage": 0.668,
-      "sell_percentage": 1.333,
-      "fromId": 0
-    }
-  ]
+    "state": "TRADE",
+    "publickey": "TEST_dvvVDFRjytNBDvsvdfdbfgGFMJK<hjgJbdfVgbwfhfnhemjNbqetehYmYEUmr",
+    "secretkey": "TEST_dfgdfbERYeYYGBDvsvdfdvqfWG56gwdBWGB5y!@#fgnbdTYvwTJtuSUmtbIvv",
+    "sleep_seconds_after_send_orders": 300,
+    "sleep_seconds_after_cancel_orders": 60,
+    "rebalance_interval_sec": 1080,
+    "pairs": [
+        {
+            "market": "BNBUSDT",
+            "base_asset_qty": 16.29,
+            "quote_asset_qty": 240.262969,
+            "buy_percentage": 0.9,
+            "sell_percentage": 1.1,
+            "fromId": 0
+        },
+        {
+            "market": "ETHUSDT",
+            "base_asset_qty": 1.1111603,
+            "quote_asset_qty": 257.07090539999996,
+            "buy_percentage": 0.9,
+            "sell_percentage": 1.1,
+            "fromId": 158674754
+        },
+        {
+            "market": "LTCUSDT",
+            "base_asset_qty": 5.7405,
+            "quote_asset_qty": 237.656597,
+            "buy_percentage": 0.9,
+            "sell_percentage": 1.1,
+            "fromId": 51707958
+        }
+    ]
 }
