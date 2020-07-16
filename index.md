@@ -17,12 +17,12 @@ We have come up with this bot for those people that don't belong to the 5% that 
 
 # GET YOUR BOT STARTED:
 <p align="justify">
-Please find instructions on how to use your bot below. At the moment the bot only works for Binance. Above picture shows the bot running for 3 different pairs namely BNBUSDT,ETHUSDT and LTCUSDT. In the instructions below we show all steps needed to mimic the bot from the picture along with some explanation of the bot and the different parameters that can be set. Changing parameters or adding and removing pairs should be straightforward after reading these steps. The picture below shows the config.json file that is used for setting the pairs and parameters in our example. You can use any text editor (for example notepad++) to alter it. We prefer visual code which can be downloaded here: <a href="https://code.visualstudio.com/">[link]</a>
+Please find instructions on how to use your bot below. At the moment the bot only works for Binance. Above picture shows the bot running for 3 different pairs namely BNBUSDT,ETHUSDT and LTCUSDT. In the instructions below we show all steps needed to mimic the bot from the picture along with some explanation of the bot and the different parameters that can be set. Changing parameters or adding and removing pairs should be straightforward after reading these steps. The picture below shows the config.json file that is used for setting the pairs and parameters in our example. You can use any text editor (for example notepad++) to alter it. We prefer visual code which can be downloaded here: <a href="https://code.visualstudio.com/">[link]</a>.
 </p>
 
 ![config.json](config.png)
 
-## sTEP 1: SET UP YOUR TRADING ACCOUNT.
+## STEP 1: SET UP YOUR TRADING ACCOUNT.
 <p align="justify">
 1. Open a trading account on the Binance exchange. Please use this <a href="https://www.binance.com/nl/register?ref=R9NNDYS8">[link]</a> as you receive a 10% discount on trading fees. Actually the discount is 20% but 10% is donated to us. In my opinion it is easiest to have a new (empty) account used solely for this bot as it makes initializing, debugging, allocating value to different portfolios (pairs) and PnL calculations much easier. Obviously you can use an existing account also.   
 </p>
@@ -105,4 +105,4 @@ The bot uses Samm Chardy python-binance library. You can always look here for ad
 4. LTC:   'Lbqi2McxsrhM2NR3FtgiMiF2JxswFBsmMX'
 
 
-For tailored investment advice, tool development, data analysis or any other question please contact us at shannonsdemon@outlook.com.
+For tailored investment advice, tool development, data analysis or any other question please contact us at **shannonsdemon@outlook.com** or ask your question using discord here: https://discord.gg/mnkE4Xb 
