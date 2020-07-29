@@ -1,7 +1,7 @@
 {
     "state": "TRADE",
-    "publickey": "TEST_dvvVDFRjytNBDvsvdfdbfgGFMJK<hjgJbdfVgbwfhfnhemjNbqetehYmYEUmr",
-    "secretkey": "TEST_dfgdfbERYeYYGBDvsvdfdvqfWG56gwdBWGB5y!@#fgnbdTYvwTJtuSUmtbIvv",
+    "publickey": "RfgTHdvvVDFRjytNBDvsvdfdbfgGFMJK<hjgJbdfVgbwfhfnhemjNbqetehYmYEUmr",
+    "secretkey": "LMnjhdfgdfbERYeYYGBDvsvdfdvqfWG56gwdBWGB5y!@#fgnbdTYvwTJtuSUmtbIvv",
     "sleep_seconds_after_send_orders": 300,
     "sleep_seconds_after_cancel_orders": 60,
     "rebalance_interval_sec": 1080,
