@@ -11,6 +11,7 @@ tf = "%a, %d %b %Y %H:%M:%S"
 filename = 'config.json'
 circuitbreaker = True
 initialized = True
+firstrun = True
 
 #read config file
 try:
@@ -176,7 +177,7 @@ def processAllTrades():
         circuitbreaker = False
 
 def sendOrders():
-    global config
+    global config,initialized,firstrun
 
     try:
         for i in range(len(config['pairs'])):
@@ -225,11 +226,15 @@ def sendOrders():
             mybidp = bidpercentage * fairp
             myaskp = askpercentage * fairp
 
+
             if float(mid) < 0.99 * mybidp or float(mid) > 1.01 * myaskp:
                 circuitbreaker = False
-                print(time.strftime(tf, time.gmtime()), '   circuitbreaker set because at crt price we hit market, please inspect config file')
+                print(time.strftime(tf, time.gmtime()), '   please inspect quantities config file as bot hits market')
+                if firstrun:
+                    initialized = False
             else:
                 circuitbreaker = True
+
 
             mybidq = stepsizeformat.format((0.5 * (totcoin * mybidp + totcash) - totcoin * mybidp) * 1.0 / mybidp)
             myaskq = stepsizeformat.format((-0.5 * (totcoin * myaskp + totcash) + totcoin * myaskp) * 1.0 / myaskp)
@@ -262,13 +267,10 @@ def sendOrders():
             else:
                 print(time.strftime(tf, time.gmtime()), '   send DUMMY sell order: ', '{0: <9}'.format(key),' p: ', '{0: <9}'.format(str(orderaskp)), ' q: ', '{0: <8}'.format(str(myaskq)), ' l:' , '{0: <9}'.format(str(mid)), ' s:' , awayFromSell)
 
-
-
     except Exception as e:
         print(time.strftime(tf, time.gmtime()), '    not able to send orders ',e)
 
-#print(time.strftime(tf, time.gmtime()), '   start initialization')
-
+    firstrun = False
 
 wait_interval_sec = float(config['sleep_seconds_after_cancel_orders'])
 quote_interval_sec = float(config['sleep_seconds_after_send_orders'])
@@ -314,11 +316,6 @@ while True and initialized:
             if lastTrades[i] != None:
                 print(time.strftime(tf, time.gmtime()), '   last 3 trades: ', lastTrades[i])
 
-    #orders send, sleep for quote interval sec
-    #if time.time() < lastUpdate + quote_interval_sec:
-    #    timeToWait = 0.01 + lastUpdate + quote_interval_sec - time.time()
-    #    print(time.strftime(tf, time.gmtime()), '   sleep for: ', timeToWait, ' seconds')
-    #    time.sleep(timeToWait)
     print(time.strftime(tf, time.gmtime()), '   sleep for: ', quote_interval_sec, ' seconds')
     time.sleep(quote_interval_sec)
 
@@ -328,11 +325,6 @@ while True and initialized:
     cancelAllOrders()
     print(time.strftime(tf, time.gmtime()), '   end cancel all orders')
 
-    #orders cancelled, sleep for wait interval sec
-    #if time.time() < lastUpdate + wait_interval_sec:
-    #    timeToWait = 0.01 + lastUpdate + wait_interval_sec - time.time()
-    #    print(time.strftime(tf, time.gmtime()), '   sleep for: ' , timeToWait , ' seconds')
-    #    time.sleep(timeToWait)
     print(time.strftime(tf, time.gmtime()), '   sleep for: ' , wait_interval_sec , ' seconds')
     time.sleep(wait_interval_sec)
 
