@@ -1,0 +1,37 @@
+I"Õ	<p align="justify">
+Welcome to the homepage of Shannon's Demon. The trading bot that grows the value of your crypto portfolio by repeatedly rebalancing your portfolio. For more information about the bot's trading strategy, please check: <a href="https://thepfengineer.com/2016/04/25/rebalancing-with-shannons-demon/">rebalancing-with-shannons-demon</a>. Get your bot running in less than 5 minutes. </p>
+<hr />
+<p><img src="bot.png" alt="shannonsdemon.exe" /></p>
+<hr />
+<p align="justify">For example let's start with a portfolio worth 1000 USD and trade BNB/USDT. We buy 500 USD worth of USDT and 500 USD worth of BNB. At a price of 20.0 BNB/USDT that is 25 BNB. 
+</p>
+<p>T0: 500.0 USDT +  25.0 BNB x 20.0 BNB/USDT = <strong>1000.0</strong> USDT.</p>
+<p align="justify">
+</p>
+<p>T1: 500.0 USDT +  25.0  BNB x 15.0 BNB/USDT = <strong>875.0</strong> USDT. Rebalance: buy 4.17 BNB.</p>
+<p align="justify">
+</p>
+<p>T1: 437.5 USDT +  29.17 BNB x 15.0 BNB/USDT = <strong>875.0</strong> USDT.</p>
+<p align="justify">
+At T2 the price increases to 20.0 BNB/USDT. The total value of our portfolio is now worth 437.5 USDT + 29.167 BNB * 20 BNB/USDT = 437.5 USDT + 583.34 USDT = 1020.84 USDT. After rebalancing we want 1020.84 / 2 = 510.42 USDT per asset. Hence we sell 72.92 USDT in exchange for BNB. That is 72.92 USDT / 20.0 BNB/USDT = 3.646 BNB. After rebalancing the total value of our portfolio is worth 510.42 USDT + (29.167 BNB - 3.646 BNB) * 20 = 1020.84 USDT. </p>
+<p>Time <strong>T2</strong>: 510.4 USDT 25.5 BNB @ <strong>20.0</strong> BNB/USDT = <strong>1020.8</strong> USDT.</p>
+<p align="justify">
+As you can see in the above example we have generated a small retrun of approximately 2% after the price move. Over time the bot generates many small returns which are immediately re-invested (similar to compound interest). This is also known as volatility harvesting and if there is plenty of something in the crypto space it is volatility. 
+</p>
+<hr />
+<p><img src="configjson.png" alt="config.json" /></p>
+<hr />
+<p>Instructions: <a href="/botinstructions.html"><b>instructions</b>.</a></p>
+<hr />
+<p>Contact: <a href="mailto:shannonsdemon@outlook.com"><b>shannonsdemon@outlook.com</b></a> or <a href="https://discord.gg/mnkE4Xb"><b>https://discord.gg/mnkE4Xb</b>.</a></p>
+<hr />
+<p>Donate:</p>
+
+<p>ETH:   0x13d55ca40ca3d008b7b0a0118d295f510410b60f</p>
+
+<p>USDT:  0x13d55ca40ca3d008b7b0a0118d295f510410b60f</p>
+
+<p>BTC:   1Fxyo5jfMxkDgGDjiAU9KE7svEG6Drriyv</p>
+
+<p>LTC:   Lbqi2McxsrhM2NR3FtgiMiF2JxswFBsmMX</p>
+:ET
